@@ -131,7 +131,13 @@ margin-left: 4rem;
 .resume a,
 .linkedin a,
 .name a,
-.selectedprojects a
+.thelostwords a,
+.bluegirl a,
+.thegardenofforkingpaths a,
+.dogsoninstagram a,
+.tokkichan a,
+.selectedprojects a,
+.archives a
 {
   color: black;
   text-decoration: none;
@@ -143,7 +149,13 @@ margin-left: 4rem;
 .resume a:hover,
 .linkedin a:hover,
 .name a:hover,
+.thelostwords a:hover,
+.bluegirl a:hover,
+.tokkichan a:hover,
+.thegardenofforkingpaths a:hover,
+.dogsoninstagram a:hover,
 .selectedprojects a:hover
+.archives a:hover
  {
   color: #b70000;
   cursor: pointer;
@@ -173,6 +185,10 @@ margin-left: 4rem;
 .linkedin:hover,
 .projects:hover,
 .contact:hover,
+.thelostwords:hover,
+.bluegirl:hover,
+.thegardenofforkingpaths:hover,
+.dogsoninstagram:hover,
 .selectedprojectslist div:hover {
   color: #b70000;
   cursor: pointer;
