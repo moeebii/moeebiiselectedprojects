@@ -501,8 +501,12 @@ body {
     width: 26rem; /* Take full width within the text container */
     font-size: 1rem;
   }
-    .info .contact a,
-    .info .projects a {
+ .info .projects a {
+      color: #b70000;
+      text-decoration: none;
+
+  }
+    .info .contact a {
       color: black;
       text-decoration: none;
     }
