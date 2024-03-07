@@ -8,6 +8,39 @@ p {
 }
 
 @font-face {
+  font-family: 'newedge_666regular_rounded';
+  src: url('newedge666-regularrounded-webfont.woff2') format('woff2'),
+       url('newedge666-regularrounded-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+
+@font-face {
+  font-family: 'newedge_666light_rounded';
+  src: url('newedge666-lightrounded-webfont.woff2') format('woff2'),
+       url('newedge666-lightrounded-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+.info .dogsoninstagram,
+.info .dogsoninstagram a {
+  color: #b70000;
+}
+
+
+.name{
+    font-family: 'newedge_666regular_rounded';
+}
+
+h1{
+  font-family: 'newedge_666regular_rounded';
+}
+
+@font-face {
   font-family: "newedge_666regular";
   src: url("newedge666-regular-webfont.woff2") format("woff2"),
     url("newedge666-regular-webfont.woff") format("woff");
@@ -24,6 +57,7 @@ html {
   margin: 0;
   font-size: 10px;
   font-family: "newedge_666regular", serif;
+
 }
 
 body {
@@ -31,18 +65,29 @@ body {
   margin: 0;
   padding: 5rem;
 }
-
 .info {
-  flex: 20%;
+  position: sticky;
+  top: 0;
+  width: 20%;
+  max-height: 100vh;
+  overflow-y: auto; /* Add a scrollbar if content exceeds the height */
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-content: start;
   text-decoration: none;
   color: black;
-  width: 20%;
-  max-height: 500px;
 }
+
+
+.emoji-link{
+  text-decoration: none;
+
+
+}
+
+
+
 
 .pictures {
   width: 70%;
@@ -67,9 +112,6 @@ body {
 }
 
 
-.thegardenofforkingpaths{
-  color: #b70000;
-}
 
 .archives,
 .email {
@@ -81,19 +123,30 @@ body {
   font-weight: bold;
 }
 
+
 .pagecols {
   display: flex;
   justify-content: space-between;
+  overflow: hidden; /* Hide the overflow to prevent scrolling */
 }
-
 
 .row {
   display: flex;
   flex: 70%;
-  max-height: 600px;
-  flex-direction: column; /* Stack items vertically */
-margin-left: 4rem;
+  max-height: auto;
+  flex-direction: column;
+  margin-left: 4rem;
+  height: 100vh; /* Occupy full height of viewport */
+  overflow-y: auto; /* Add a scrollbar if content exceeds the height */
+  
 }
+
+.text-container{
+  display: flex;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
 
 .image-container,
 .text-container {
@@ -111,18 +164,16 @@ margin-left: 4rem;
 .image-container{
   width: 100%;
 }
-.text-container{
-  display: fl;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-}
 
 .description{
   color: #b70000;
 }
 
-.writeup {
-  width: 40rem;
+@media (min-width: 480px) {
+  .writeup {
+    width: 40rem;
+  }
+
 }
 
 /* Additional specificity for anchor elements within .ig and .linkedin */
@@ -137,10 +188,21 @@ margin-left: 4rem;
 .dogsoninstagram a,
 .tokkichan a,
 .selectedprojects a,
-.archives a
+.archives a,
+.h1 a,
+.p a
 {
   color: black;
   text-decoration: none;
+}
+
+.image-title a {
+  color: black; /* Set the color to black */
+  text-decoration: none; /* Remove underline, if you want */
+}
+
+.writeup a {
+  color: black; /* Set the color to black */
 }
 
 /* Adjusted hover styles for anchor elements within .ig and .linkedin */
@@ -169,12 +231,25 @@ margin-left: 4rem;
   max-width: 19rem;
 }
 
+.aboutme .emoji-link {
+  text-decoration: none; /* Remove underline for the link */
+  color: grey; /* Set initial color to black */
+  transition: color 0.3s ease; /* Add smooth transition effect */
+}
+
+.aboutme .emoji-link:hover {
+  color: #333; /* Darken the color on hover */
+}
+
+
 .japanese-text {
   color: grey;
   font-size: 1rem;
   padding-top: 2rem;
   max-width: 20rem;
 }
+
+
 
 
 .name:hover,
@@ -307,6 +382,7 @@ margin-left: 4rem;
   display: block;
 }
 
+
 @media (max-width: 768px) {
   .selectedprojectslist div::before {
     width: 0.75rem;
@@ -329,10 +405,6 @@ margin-left: 4rem;
   .resume,
   .selectedprojectslist div {
     font-size: 1rem; 
-  }
-
-  .projects{
-    color: #b70000;
   }
 
   .selectedprojectslist div::before {
@@ -371,8 +443,73 @@ margin-left: 4rem;
   .text-container {
     font-size: 0.8rem;
 
+
   }
+
+  .writeup {
+  width: 30rem;
+}
 }
 
 
-/* ... (remaining styles) ... */
+
+@media (max-width: 479px) {
+  .pagecols {
+    flex-direction: column-reverse; /* Reverse the order of flex items for smaller screens */
+  }
+
+  .name{
+    font-family: 'newedge_666light_rounded';
+    
+  }
+
+  .projects, .archives, .contact {
+    font-family: 'newedge_666light_rounded';
+
+  }
+  
+
+  .info {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center; /* Align vertically centered */
+    height: auto;
+    padding: 1rem; /* Adjust padding as needed */
+    background-color: #ffffff; /* Set a background color if needed */
+  }
+
+  .row {
+    order: 1; /* Move the .row div to the top */
+    margin-left: 0; /* Remove left margin */
+  }
+
+  .row > * {
+    width: 100%; /* Make sure each item takes full width */
+  }
+
+  .text-container {
+    margin-bottom: 2rem; /* Reduce bottom margin for mobile */
+    width: 100%; /* Take full width */
+  }
+
+  .writeup {
+    width: 26rem; /* Take full width within the text container */
+    font-size: 1rem;
+  }
+    .info .contact a,
+    .info .projects a {
+      color: black;
+      text-decoration: none;
+    }
+  
+    .info .contact a:hover,
+    .info .projects a:hover {
+      color: #b70000;
+    }
+  }
+
