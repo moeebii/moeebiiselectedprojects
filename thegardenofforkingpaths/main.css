@@ -492,15 +492,19 @@ body {
     width: 100%; /* Make sure each item takes full width */
   }
 
-  .text-container {
-    margin-bottom: 2rem; /* Reduce bottom margin for mobile */
-    width: 100%; /* Take full width */
+    .writeup {
+    width: 26rem; /* Take full width within the text container */
+    font-size: 1.5rem;
   }
 
-  .writeup {
-    width: 26rem; /* Take full width within the text container */
-    font-size: 1rem;
+  h1{
+    font-size: 2rem;
   }
+
+
+  .date, .description {
+    font-size: 1rem;
+}
    .info .projects a {
       color: #b70000;
       text-decoration: none;

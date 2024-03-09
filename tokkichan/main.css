@@ -499,8 +499,17 @@ body {
 
   .writeup {
     width: 26rem; /* Take full width within the text container */
-    font-size: 1rem;
+    font-size: 1.5rem;
   }
+
+  h1{
+    font-size: 2rem;
+  }
+
+
+  .date, .description {
+    font-size: 1rem;
+}
 
  .info .projects a {
       color: #b70000;
