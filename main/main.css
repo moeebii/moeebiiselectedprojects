@@ -1,0 +1,77 @@
+@font-face {
+  font-family: "newedge_666regular_rounded";
+  src: url("newedge666-regularrounded-webfont.woff2") format("woff2"),
+    url("newedge666-regularrounded-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  margin: 2rem; /* Combine the margin properties */
+  box-sizing: border-box; /* Include padding and border in the total width/height */
+}
+
+.grid-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; /* Distribute items evenly along the row */
+  align-content: space-between; /* Distribute rows evenly */
+}
+
+.grid-item {
+  position: relative;
+  margin: 10px;
+  flex: 0 0 calc(50% - 20px); /* Adjust the width of each column as needed */
+  width: 100%; /* 100% width on mobile */
+  box-sizing: border-box; /* Include padding and border in the total width/height */
+  overflow: hidden; /* Hide overflow for the blur effect */
+}
+
+.grid-item img {
+  max-width: 100%;
+  height: auto;
+  width: 100%; /* Ensure images take full width of the container */
+  transition: filter 0.3s; /* Smooth transition for the filter effect */
+  z-index: 1; /* Lower z-index for the image */
+}
+
+.grid-item:hover img {
+  opacity: 0.6; /* Adjust the opacity level as needed */
+}
+
+.caption a {
+  color: #8a0000 !important; /* Set your desired text color */
+  text-decoration-color: #8a0000 !important; /* Set your desired underline color */
+}
+
+
+.caption {
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column; /* Align text content in a column */
+  width: 100%; /* Ensure the caption takes full width */
+  color: #8a0000;
+  font-family: "newedge_666regular_rounded", sans-serif;
+  font-size: 1.5rem;
+  opacity: 0; /* Initially hidden */
+  transition: opacity 0.3s; /* Fade-in transition */
+  z-index: 2; /* Higher z-index for the caption */
+  mix-blend-mode: hard-light;
+}
+
+
+
+
+.grid-item:hover .caption {
+  opacity: 1; /* Show caption on hover */
+}
+
+@media (max-width: 767px) {
+  .caption {
+    font-size: 1rem; /* Adjust the font size for smaller screens */
+  }
+}
