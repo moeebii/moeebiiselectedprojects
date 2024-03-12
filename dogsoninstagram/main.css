@@ -460,11 +460,13 @@ body {
 
   .name{
     font-family: 'newedge_666light_rounded';
+    font-size: 1rem;
     
   }
 
   .projects, .archives, .contact {
     font-family: 'newedge_666light_rounded';
+    font-size: 2rem;
 
   }
   
