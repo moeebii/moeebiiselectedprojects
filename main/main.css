@@ -1,77 +1,580 @@
+body,
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+  padding: 0;
+}
+
 @font-face {
-  font-family: "newedge_666regular_rounded";
-  src: url("newedge666-regularrounded-webfont.woff2") format("woff2"),
-    url("newedge666-regularrounded-webfont.woff") format("woff");
+  font-family: 'newedge_666regular_rounded';
+  src: url('newedge666-regularrounded-webfont.woff2') format('woff2'),
+       url('newedge666-regularrounded-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+
+@font-face {
+  font-family: 'newedge_666light_rounded';
+  src: url('newedge666-lightrounded-webfont.woff2') format('woff2'),
+       url('newedge666-lightrounded-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+.info .selectedprojects,
+.info .selectedprojects a {
+  color: #b70000;
+}
+
+
+.name{
+    font-family: 'newedge_666regular_rounded';
+}
+
+h1{
+  font-family: 'newedge_666regular_rounded';
+}
+
+.caption{
+  font-family: 'newedge_666regular_rounded';
+  
+}
+
+@font-face {
+  font-family: "newedge_666regular";
+  src: url("newedge666-regular-webfont.woff2") format("woff2"),
+    url("newedge666-regular-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
-body {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-  margin: 2rem; /* Combine the margin properties */
-  box-sizing: border-box; /* Include padding and border in the total width/height */
+/* Apply a box-sizing border-box model globally */
+* {
+  box-sizing: border-box;
 }
 
-.grid-container {
+html {
+  margin: 0;
+  font-size: 10px;
+  font-family: "newedge_666regular", serif;
+
+}
+
+body {
+  font-size: 1.6rem;
+  margin: 0;
+  padding: 5rem;
+}
+.info {
+  position: sticky;
+  top: 0;
+  width: 20%;
+  max-height: 100vh;
+  overflow-y: auto; /* Add a scrollbar if content exceeds the height */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-content: start;
+  text-decoration: none;
+  color: black;
+}
+
+
+.emoji-link{
+  text-decoration: none;
+
+
+}
+
+
+
+
+.pictures {
+  width: 70%;
+  padding-right: 5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.name {
+  text-transform: capitalize;
+  font-weight: bold;
+}
+
+.selectedprojectslist {
+  padding-left: 2rem;
+  padding-top: 2rem;
+}
+
+.selectedprojects {
+  padding-top: 2rem;
+  font-weight: bold;
+}
+
+
+
+.archives,
+.email {
+  padding-top: 2rem;
+  font-weight: bold;
+}
+
+.resume {
+  font-weight: bold;
+}
+
+
+.pagecols {
+  display: flex;
+  justify-content: space-between;
+  overflow: hidden; /* Hide the overflow to prevent scrolling */
+}
+
+.row {
+  display: flex;
+  flex: 70%;
+  max-height: auto;
+  flex-direction: column;
+  margin-left: 4rem;
+  height: 100vh; /* Occupy full height of viewport */
+  overflow-y: auto; /* Add a scrollbar if content exceeds the height */
+}
+
+.gallery {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between; /* Distribute items evenly along the row */
-  align-content: space-between; /* Distribute rows evenly */
 }
 
-.grid-item {
+.gallery a {
+  flex: 0 0 48%; /* Set the width of each image to 48% to create two columns with some spacing */
+  display: flex;
+  margin: 1%; /* Add some margin for spacing between images */
+  overflow: hidden; /* Hide any overflow to enforce cropping */
+}
+
+.gallery img {
+  width: 100%; /* Set the width to 100% to ensure it fills the container */
+  height: auto; /* Let the height adjust automatically to maintain the aspect ratio */
+  object-fit: cover; /* Crop the image to cover the entire container */
+  cursor: pointer;
+}
+.gallery :hover{
+  opacity: 80%;
+}
+
+/* Add these styles at the end of your existing CSS */
+
+.gallery-item {
   position: relative;
-  margin: 10px;
-  flex: 0 0 calc(50% - 20px); /* Adjust the width of each column as needed */
-  width: 100%; /* 100% width on mobile */
-  box-sizing: border-box; /* Include padding and border in the total width/height */
-  overflow: hidden; /* Hide overflow for the blur effect */
+  overflow: hidden;
 }
 
-.grid-item img {
-  max-width: 100%;
-  height: auto;
-  width: 100%; /* Ensure images take full width of the container */
-  transition: filter 0.3s; /* Smooth transition for the filter effect */
-  z-index: 1; /* Lower z-index for the image */
+.caption {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff; /* Text color */
+  font-size: 1.5rem; /* Adjust the font size */
+  font-weight: bold;
+  text-align: center;
+  opacity: 0; /* Initially invisible */
+  transition: opacity 0.3s ease; /* Smooth transition effect */
 }
 
-.grid-item:hover img {
-  opacity: 0.6; /* Adjust the opacity level as needed */
+.gallery-item:hover .caption {
+  opacity: 1;
+}
+
+
+/* ... (your existing styles) ... */
+
+.caption {
+  text-decoration: none;
+  color: black;
 }
 
 .caption a {
-  color: #8a0000 !important; /* Set your desired text color */
-  text-decoration-color: #8a0000 !important; /* Set your desired underline color */
+  text-decoration: none; /* Remove underline for caption hyperlinks */
+  color: black;
+}
+
+/* ... (your existing styles) ... */
+
+
+
+/* Additional specificity for anchor elements within .ig and .linkedin */
+.ig a,
+.email a,
+.resume a,
+.linkedin a,
+.name a,
+.thelostwords a,
+.bluegirl a,
+.thegardenofforkingpaths a,
+.dogsoninstagram a,
+.tokkichan a,
+.selectedprojects a,
+.archives a,
+.h1 a,
+.p a,
+.caption a
+{
+  color: black;
+  text-decoration: none;
+}
+
+.image-title a {
+  color: black; /* Set the color to black */
+  text-decoration: none; /* Remove underline, if you want */
+}
+
+.writeup a {
+  color: black; /* Set the color to black */
+}
+
+/* Adjusted hover styles for anchor elements within .ig and .linkedin */
+.ig a:hover,
+.email a:hover,
+.resume a:hover,
+.linkedin a:hover,
+.name a:hover,
+.thelostwords a:hover,
+.bluegirl a:hover,
+.tokkichan a:hover,
+.thegardenofforkingpaths a:hover,
+.dogsoninstagram a:hover,
+.selectedprojects a:hover
+.archives a:hover
+ {
+  color: #b70000;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.aboutme {
+  color: grey;
+  font-size: 1.25rem;
+  padding-top: 2rem;
+  max-width: 19rem;
+}
+
+.aboutme .emoji-link {
+  text-decoration: none; /* Remove underline for the link */
+  color: grey; /* Set initial color to black */
+  transition: color 0.3s ease; /* Add smooth transition effect */
+}
+
+.aboutme .emoji-link:hover {
+  color: #333; /* Darken the color on hover */
 }
 
 
-.caption {
-  top: 0;
-  left: 0;
-  display: flex;
-  flex-direction: column; /* Align text content in a column */
-  width: 100%; /* Ensure the caption takes full width */
-  color: #8a0000;
-  font-family: "newedge_666regular_rounded", sans-serif;
-  font-size: 1.5rem;
-  opacity: 0; /* Initially hidden */
-  transition: opacity 0.3s; /* Fade-in transition */
-  z-index: 2; /* Higher z-index for the caption */
-  mix-blend-mode: hard-light;
+.japanese-text {
+  color: grey;
+  font-size: 1rem;
+  padding-top: 2rem;
+  max-width: 20rem;
 }
 
+/* Add these styles at the end of your existing CSS */
 
 
 
-.grid-item:hover .caption {
-  opacity: 1; /* Show caption on hover */
+
+
+
+.name:hover,
+.selectedprojects:hover,
+.archives:hover,
+.email:hover,
+.ig:hover,
+.linkedin:hover,
+.projects:hover,
+.contact:hover,
+.thelostwords:hover,
+.bluegirl:hover,
+.thegardenofforkingpaths:hover,
+.dogsoninstagram:hover,
+.selectedprojectslist div:hover {
+  color: #b70000;
+  cursor: pointer;
+  text-decoration: none;
 }
 
-@media (max-width: 767px) {
-  .caption {
-    font-size: 1rem; /* Adjust the font size for smaller screens */
+.japanese-text {
+  display: none;
+}
+
+.info:hover .japanese-text {
+  display: block;
+}
+
+/* ... (previous styles) ... */
+
+.japanese-text {
+  display: none;
+}
+
+/* Display Japanese text on hover for larger screens */
+@media (min-width: 481px) {
+  .info:hover .japanese-text {
+    display: block;
   }
 }
+
+/* Hide Japanese text on all screens */
+@media only screen and (max-width: 480px) {
+  .japanese-text {
+    display: none !important;
+  }
+}
+
+/* ... (remaining styles) ... */
+
+@media (max-width: 480px) {
+  body {
+    font-size: 1rem;
+  }
+
+  .info {
+    width: 100%;
+  }
+
+  .pictures,
+  .email,
+  .ig,
+  .linkedin,
+  .aboutme,
+  .japanese-text,
+  .resume,
+  .selectedprojectslist div {
+    display: none;
+  }
+
+  .caption {
+    font-size: 1rem;
+  }
+
+  .info {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    height: 4vh;
+  }
+
+  .name,
+  .projects,
+  .archives,
+  .contact {
+    text-align: center;
+    font-weight: bold;
+    padding: 0.5rem;
+  }
+
+  .selectedprojects {
+    display: none;
+  }
+}
+
+@media (min-width: 481px) {
+  .contact {
+    display: none;
+  }
+
+  .projects {
+    display: none;
+  }
+
+  .contact-content {
+    display: none;
+  }
+}
+
+.selectedprojectslist div {
+  position: relative;
+}
+
+.selectedprojectslist div::before {
+  content: "";
+  position: absolute;
+  left: -2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 50%;
+  background-color: #b70000;
+  display: none;
+}
+
+.selectedprojectslist div:hover {
+  color: #b70000;
+}
+
+.selectedprojectslist div:hover::before {
+  display: block;
+}
+
+
+@media (max-width: 768px) {
+  .selectedprojectslist div::before {
+    width: 0.75rem;
+    height: 0.75rem;
+    left: -1rem;
+  }
+}
+
+@media (max-width: 800px) {
+  .contact,
+  .selectedprojects,
+  .name,
+  .projects,
+  .archives,
+  .email,
+  .ig,
+  .linkedin,
+  .aboutme,
+  .japanese-text,
+  .resume,
+  .selectedprojectslist div {
+    font-size: 1rem; 
+  }
+
+  .caption {
+    font-size: 1.2rem;
+  }
+
+  .selectedprojectslist div::before {
+    width: 0.75rem;
+    height: 0.75rem;
+    left: -1rem;
+  }
+}
+
+/* ... (previous styles) ... */
+
+@media (max-width: 992px) {
+  .image-container {
+    font-size: 1.3rem;
+  }
+
+  .image-container img{
+    max-width: 80rem;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .image-container {
+    max-width: 50em;
+  }
+
+  .text-container {
+    max-width: 25em;
+    font-size: 1rem;
+
+  }
+}
+
+@media (max-width: 600px) {
+  .text-container {
+    font-size: 0.8rem;
+
+
+  }
+
+  .writeup {
+  width: 30rem;
+}
+}
+
+
+
+@media (max-width: 479px) {
+
+  /* ... (your existing styles) ... */
+
+
+  .gallery {
+    display: flex;
+    flex-direction: column; /* Display images in a single column */
+  }
+
+  .gallery a {
+    flex: 0 0 100%; /* Set the width of each image to 100% for a single column */
+    margin: 1%; /* Adjust margin as needed */
+  }
+
+
+  .pagecols {
+    flex-direction: column-reverse; /* Reverse the order of flex items for smaller screens */
+  }
+
+  .name{
+    font-family: 'newedge_666light_rounded';
+    
+  }
+
+  .projects, .archives, .contact {
+    font-family: 'newedge_666light_rounded';
+
+  }
+  
+
+  .info {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center; /* Align vertically centered */
+    height: auto;
+    padding: 1rem; /* Adjust padding as needed */
+    background-color: #ffffff; /* Set a background color if needed */
+  }
+
+  .row {
+    order: 1; /* Move the .row div to the top */
+    margin-left: 0; /* Remove left margin */
+  }
+
+  .row > * {
+    width: 100%; /* Make sure each item takes full width */
+  }
+
+  .text-container {
+    margin-bottom: 2rem; /* Reduce bottom margin for mobile */
+    width: 100%; /* Take full width */
+  }
+
+  .writeup {
+    width: 26rem; /* Take full width within the text container */
+    font-size: 1rem;
+  }
+
+ .info .projects a {
+      color: #b70000;
+      text-decoration: none;
+
+  }
+    .info .contact a {
+      color: black;
+      text-decoration: none;
+    }
+  
+    .info .contact a:hover,
+    .info .projects a:hover {
+      color: #b70000;
+    }
+  }
+
