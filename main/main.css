@@ -151,7 +151,7 @@ body {
 }
 
 .gallery a {
-  flex: 0 0 48%; /* Set the width of each image to 48% to create two columns with some spacing */
+  flex: none; /* Set the width of each image to 48% to create two columns with some spacing */
   display: flex;
   margin: 1%; /* Add some margin for spacing between images */
   overflow: hidden; /* Hide any overflow to enforce cropping */
@@ -159,7 +159,7 @@ body {
 
 .gallery img {
   width: 100%; /* Set the width to 100% to ensure it fills the container */
-  height: auto; /* Let the height adjust automatically to maintain the aspect ratio */
+  align-items: center; /* Let the height adjust automatically to maintain the aspect ratio */
   object-fit: cover; /* Crop the image to cover the entire container */
   cursor: pointer;
 }
